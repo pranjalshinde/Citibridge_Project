@@ -1,21 +1,17 @@
 package com.citi.repository;
 
 import com.citi.domain.User;
+import com.citi.domain.UserKey;
 //import com.citi.domain.QPerson;
 //import com.codejava.domain.User;
-import com.querydsl.core.types.dsl.StringExpression;
-import com.querydsl.core.types.dsl.StringPath;
+
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.querydsl.QuerydslPredicateExecutor;
-import org.springframework.data.querydsl.binding.QuerydslBinderCustomizer;
-import org.springframework.data.querydsl.binding.QuerydslBindings;
-import org.springframework.data.querydsl.binding.SingleValueBinding;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-import javax.persistence.criteria.Predicate;
+import org.springframework.data.repository.query.Param;
+
 
 
 //public interface PersonRepository extends CrudRepository<Person, Integer>, QuerydslPredicateExecutor<Person>, QuerydslBinderCustomizer<QPerson> {
@@ -29,13 +25,14 @@ import javax.persistence.criteria.Predicate;
 ////    public  Person save(Person person);
 //}
 
-@Repository
 
-public interface UserRepository extends CrudRepository<User, Integer> {
+@EnableJpaRepositories
+public interface UserRepository extends JpaRepository<User, Integer> {
 	
-	@Query("Select t from User t where t.Name = ?")
-	public User findByUserName(String userName);
+	@Query("Select u from User u where u.Name = :userName")
+	public User getUserByUsername(@Param("userName") String userName);
 	
-	@Query("Select t from UserKey where t.Password = ?")
-	public User checkPassword(String password);
+	@Query("Select t from UserKey t where t.id = :id")
+	public UserKey getUserById(@Param("id") int id);
+	
 }
