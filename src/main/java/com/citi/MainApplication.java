@@ -7,8 +7,8 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@EntityScan(basePackages = {"com.citi.domain"})
-@ComponentScan(basePackages = "com.citi")
+//@EntityScan(basePackages = {"com.citi.domain"})
+//@ComponentScan(basePackages = "com.citi")
 public class MainApplication {
 
 	public static void main(String[] args) {

@@ -10,12 +10,16 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.citi.service.implementation.UserDetailsServiceImpl;
+
 @Configuration
 @EnableWebSecurity
+
 public class MyConfig extends WebSecurityConfigurerAdapter{
 
 	@Bean
 	public UserDetailsService getUserDetailsService() {
+		System.out.println("UserDetailsServiceImpl Bean");
 		return new UserDetailsServiceImpl();
 	}
 	
@@ -45,6 +49,6 @@ public class MyConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		// TODO Auto-generated method stub
-		http.authorizeRequests().antMatchers("/**").permitAll().and().formLogin().and().csrf().disable();
+		http.authorizeRequests().antMatchers("/user/**").authenticated().and().formLogin().and().csrf().disable();
 	}
 }

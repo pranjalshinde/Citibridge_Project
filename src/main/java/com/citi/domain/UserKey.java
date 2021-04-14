@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -14,23 +15,24 @@ import lombok.Data;
 @Table(name="UserKey")
 public class UserKey {
 	@Id
+	@JoinColumn(name="Id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private String id;
 	
 	@Column(name="Password")
     private String password;
 
-	public UserKey(int id, String password) {
+	public UserKey(String id, String password) {
 		super();
 		this.id = id;
 		this.password = password;
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

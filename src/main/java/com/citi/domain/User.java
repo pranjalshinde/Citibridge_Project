@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private String id;
 
     @Column(name="Name")
     private String userName;
@@ -18,26 +18,28 @@ public class User {
     @Column(name="Email")
     private String email;
 
-	public User(int id, String userName, String email) {
+	public User(String id, String userName, String email) {
 		super();
 		this.id = id;
 		this.userName = userName;
 		this.email = email;
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
 	public String getUserName() {
+		System.out.println("getUserName in User.java");
 		return userName;
 	}
 
 	public void setUserName(String userName) {
+		System.out.println("getUserName in User.java");
 		this.userName = userName;
 	}
 
