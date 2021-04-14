@@ -2,6 +2,7 @@ package com.citi.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 public class UserController {
     
 //    @Autowired
-//    private UserService userService;
+//    private UserDetailsService userDetailsService;
     
 //    @RequestMapping(value = "/person", method = RequestMethod.POST)
 //    public Boolean getPersonData(@RequestBody User p)
@@ -43,18 +44,8 @@ public class UserController {
  
     @RequestMapping("/index")
     public String dashboard() {
+    	System.out.println("getUserName in Controller.java");
     	return "index";
     }
-//    @RequestMapping(value = "/login", method = RequestMethod.POST)
-//    public String login(@ModelAttribute User user, UserKey key) {
-//    	String output;
-////    	UserService valid = new UserServiceImpl();
-//    	if(userService.validateUser(user.getUserName(), key.getPassword()) != null) {
-//    		output = "Login Successful";
-//    	}
-//    	else {
-//    		output = "Invalid details";
-//    	}
-//    	return output;
-//    }
+    
 }
