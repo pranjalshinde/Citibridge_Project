@@ -12,7 +12,7 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name="UserKey")
+@Table(name="userkey")
 public class UserKey {
 	@Id
 	@JoinColumn(name="Id")
@@ -21,6 +21,10 @@ public class UserKey {
 	
 	@Column(name="Password")
     private String password;
+	
+	public UserKey() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public UserKey(String id, String password) {
 		super();

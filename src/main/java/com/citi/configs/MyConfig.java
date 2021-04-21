@@ -1,5 +1,6 @@
 package com.citi.configs;
 
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -10,16 +11,19 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+
 import com.citi.service.implementation.UserDetailsServiceImpl;
 
 @Configuration
 @EnableWebSecurity
 
 public class MyConfig extends WebSecurityConfigurerAdapter{
+	
+	
 
 	@Bean
 	public UserDetailsService getUserDetailsService() {
-		System.out.println("UserDetailsServiceImpl Bean");
+		//System.out.println("UserDetailsServiceImpl Bean");
 		return new UserDetailsServiceImpl();
 	}
 	
@@ -30,6 +34,7 @@ public class MyConfig extends WebSecurityConfigurerAdapter{
 	
 	@Bean
 	public DaoAuthenticationProvider authenticationProvider() {
+		//System.out.println("authentication provider");
 		DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
 		daoAuthenticationProvider.setUserDetailsService(this.getUserDetailsService());
 		daoAuthenticationProvider.setPasswordEncoder(getpassBCryptPasswordEncoder());
@@ -42,13 +47,17 @@ public class MyConfig extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		
+		//System.out.println("configure 1st");
+
 		auth.authenticationProvider(authenticationProvider());
+		
+		
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		// TODO Auto-generated method stub
+		//System.out.println("configure 2nd");
 		http.authorizeRequests().antMatchers("/user/**").authenticated().and().formLogin().and().csrf().disable();
 	}
 }

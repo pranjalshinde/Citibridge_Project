@@ -2,9 +2,7 @@ package com.citi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
 //@EntityScan(basePackages = {"com.citi.domain"})
@@ -13,6 +11,13 @@ public class MainApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MainApplication.class, args);
+		
+//		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+//		String password = "yawinpassword";
+//		String encodedPassword = passwordEncoder.encode(password);
+//		System.out.println();
+//		System.out.println("Password is         : " + password);
+//		System.out.println("Encoded Password is : " + encodedPassword);
 	}
 
 }

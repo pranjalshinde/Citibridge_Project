@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Data
-@Table(name="User")
+@Table(name="user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,6 +17,10 @@ public class User {
 
     @Column(name="Email")
     private String email;
+    
+    public User() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public User(String id, String userName, String email) {
 		super();
@@ -34,12 +38,12 @@ public class User {
 	}
 
 	public String getUserName() {
-		System.out.println("getUserName in User.java");
+		//System.out.println("getUserName in User.java");
 		return userName;
 	}
 
 	public void setUserName(String userName) {
-		System.out.println("getUserName in User.java");
+		//System.out.println("getUserName in User.java");
 		this.userName = userName;
 	}
 
