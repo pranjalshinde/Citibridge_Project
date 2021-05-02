@@ -3,6 +3,9 @@ package com.citi.controller;
 
 import org.springframework.web.bind.annotation.*;
 
+import com.citi.service.implementation.BSEDataServiceImpl;
+import com.citi.service.implementation.NSEDataServiceImpl;
+
 @RestController
 @RequestMapping("/user")
 @CrossOrigin(origins = "*" , allowedHeaders = "*")
@@ -25,11 +28,12 @@ public class UserController {
 //		}
 //	}
     
-    @RequestMapping(value = "/name", method = RequestMethod.GET)
-    public String getDataFromUi(@RequestParam String name)
+    @RequestMapping(value = "/stocks", method = RequestMethod.GET)
+    public String getDataFromUi()
     {
-		System.out.println(name);
-		return name;
+    	String requiredAttributes = BSEDataServiceImpl.BSEData();
+		System.out.println(requiredAttributes);
+		return requiredAttributes;
 	}
     
  
