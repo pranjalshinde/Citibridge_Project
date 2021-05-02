@@ -18,7 +18,7 @@ public class MainApplication {
 		
 		
 //		 BSEDataServiceImpl.BSEData();
-//		 NSEDataServiceImpl.NSEData();
+		 NSEDataServiceImpl.NSEData();
 		
 //		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 //		String password = "yawinpassword";

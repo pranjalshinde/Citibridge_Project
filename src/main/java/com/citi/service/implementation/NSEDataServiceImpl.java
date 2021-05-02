@@ -18,11 +18,11 @@ public class NSEDataServiceImpl {
 			URL urlN = new URL("https://www.nseindia.com/api/equity-stockIndices?index=NIFTY%2050");
 			
 			HttpURLConnection connection = (HttpURLConnection) urlN.openConnection();
-			connection.setRequestMethod("GET");
+			connection.setRequestMethod("POST");
 			connection.connect();
 			
 			int responseCode = connection.getResponseCode();
-//			System.out.println("Hello");
+			System.out.println("Hello");
 			System.out.println(responseCode);
 			
 			if(responseCode != 200) {
@@ -48,7 +48,7 @@ public class NSEDataServiceImpl {
 					for(Object ob : jsonArrayN) {
 						stockN = (JSONObject) ob;
 						requiredAttributes += "{";
-						requiredAttributes += "Symbol : "+stockN.get("Symbol")+", Price : "+ stockN.get("Price")+", timestamp : "+stockN.get("timestamp");
+						requiredAttributes += "symbol : "+stockN.get("symbol")+", previousClose : "+ stockN.get("previousClose");
 						requiredAttributes += "},";
 						
 					}
