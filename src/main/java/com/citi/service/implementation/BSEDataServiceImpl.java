@@ -51,7 +51,7 @@ public class BSEDataServiceImpl {
 					for(Object ob : jsonArrayB) {
 						stockB = (JSONObject) ob;
 						requiredAttributes += "{";
-						requiredAttributes += "ScripName : "+stockB.get("ScripName")+", Price : "+ stockB.get("Price")+", LastTrdTime : "+stockB.get("LastTrdTime");
+						requiredAttributes += "ScripName : "+stockB.get("ScripName")+", Price : "+ stockB.get("Price");
 						requiredAttributes += "},";
 						
 					}
